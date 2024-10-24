@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: GAME_TITLE,
-  description: 'A fun word game to test your wordsmith skills',
+  description: 'A fun word game to test your wordsmith abilities',
 };
 
 export default function RootLayout({
