@@ -18,7 +18,7 @@ export const StartScreen = ({ onStart, gameTitle }: StartScreenProps) => {
         Welcome to <span className="italic">{gameTitle}</span>
       </h1>
       <p className="text-lg mb-6 text-muted-foreground">the fast-paced, brain-teasing adjective association game</p>
-      <p className="text-lg mb-6">You have 60 seconds to uncover as many synonyms as you can. The more you find for each word, the higher your streak!</p>
+      <p className="text-lg mb-6">You have 60 seconds to uncover as many synonyms as you can. The more you find for each word, the higher your streak and score!</p>
       <p className="text-lg mb-6">Sharpen your vocabulary, connect descriptive words, and show off your inner wordsmith in this fun and addictive game.</p>
       <Button 
         onClick={handleStart} 

@@ -1,4 +1,4 @@
-# Synonyms - Word Association Game
+# Synonyms - Adjective Association Game
 
 ## Description
 
@@ -31,7 +31,7 @@ Synonyms is a fast-paced, brain-teasing adjective association game built with Ne
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/synonyms-game.git
+   git clone https://github.com/kyoli48/synonyms-word-game.git
    cd synonyms-game
    ```
 
@@ -81,5 +81,4 @@ This project is licensed under the MIT License.
 ## Acknowledgments
 
 - Merriam-Webster for providing the Thesaurus API
-- The Next.js team for the awesome framework
-- Shadcn for the beautiful UI components
+- dulldesk for providing the random word API (https://github.com/dulldesk/words-api)

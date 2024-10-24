@@ -52,6 +52,7 @@ export function GameBoard() {
       title: "Game Over!",
       description: `Your final score: ${score}`,
       action: <ToastAction altText="Try again" onClick={startGame}>Try again</ToastAction>,
+      duration: 10000, // 10 seconds
     })
   }, [score, toast, startGame])
 
