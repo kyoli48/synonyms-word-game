@@ -2,7 +2,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { useToast } from "@/hooks/use-toast"
 import { ToastAction } from "@/components/ui/toast"
 import { Card, CardContent } from "@/components/ui/card"
@@ -23,6 +23,26 @@ export function GameBoard() {
   const [isGameStarted, setIsGameStarted] = useState(false)
   const { toast } = useToast()
 
+  const startGame = useCallback(() => {
+    setCurrentWord(WORDS[Math.floor(Math.random() * WORDS.length)])
+    setSynonyms([])
+    setTimeLeft(INITIAL_TIME)
+    setScore(0)
+    setStreak(0)
+    setIsGameOver(false)
+    setIsGameStarted(true)
+  }, []) // Empty dependency array as it doesn't depend on any external values
+
+  const endGame = useCallback(() => {
+    setIsGameOver(true)
+    setIsGameStarted(false)
+    toast({
+      title: "Game Over!",
+      description: `Your final score: ${score}`,
+      action: <ToastAction altText="Try again" onClick={startGame}>Try again</ToastAction>,
+    })
+  }, [score, toast, startGame])
+
   useEffect(() => {
     let timer: NodeJS.Timeout
     if (timeLeft > 0 && isGameStarted) {
@@ -31,17 +51,7 @@ export function GameBoard() {
       endGame()
     }
     return () => clearTimeout(timer)
-  }, [timeLeft, isGameStarted])
-
-  const startGame = () => {
-    setCurrentWord(WORDS[Math.floor(Math.random() * WORDS.length)])
-    setSynonyms([])
-    setTimeLeft(INITIAL_TIME)
-    setScore(0)
-    setStreak(0)
-    setIsGameOver(false)
-    setIsGameStarted(true)
-  }
+  }, [timeLeft, isGameStarted, endGame])
 
   const handleSubmit = (inputValue: string) => {
     if (!synonyms.includes(inputValue)) {
@@ -72,16 +82,6 @@ export function GameBoard() {
       title: "Word skipped",
       description: "Streak reset to 0",
       duration: 2000,
-    })
-  }
-
-  const endGame = () => {
-    setIsGameOver(true)
-    setIsGameStarted(false)
-    toast({
-      title: "Game Over!",
-      description: `Your final score: ${score}`,
-      action: <ToastAction altText="Try again" onClick={startGame}>Try again</ToastAction>,
     })
   }
 
