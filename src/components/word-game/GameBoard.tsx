@@ -13,6 +13,7 @@ import { GameOver } from "./GameOver"
 import { SynonymInput } from "./SynonymInput"
 import { SynonymList } from "./SynonymList"
 import { fetchRandomWord, validateSynonym } from "@/services/dictionaryApi"
+import { Footer } from "@/components/layout/Footer"
 
 export function GameBoard() {
   const [currentWord, setCurrentWord] = useState("")
@@ -140,32 +141,35 @@ export function GameBoard() {
   }, [isGameStarted, toast])
 
   return (
-    <Card className="w-full max-w-3xl mx-auto">
-      <GameHeader 
-        timeLeft={timeLeft} 
-        score={score} 
-        streak={streak} 
-        title={GAME_TITLE}
-        onTitleClick={handleTitleClick}
-      />
-      <CardContent className="p-4">
-        {!isGameStarted ? (
-          <StartScreen onStart={startGame} gameTitle={GAME_TITLE} />
-        ) : !isGameOver ? (
-          <>
-            <div className="mb-5">
-              <h2 className="text-xl font-semibold mb-4">
-                Current Word: 
-                <span className="text-3xl ml-2 font-bold animate-color-cycle bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-md">{currentWord}</span>
-              </h2>
-              <SynonymInput onSubmit={handleSubmit} />
-            </div>
-            <SynonymList synonyms={synonyms} onSkip={skipWord} />
-          </>
-        ) : (
-          <GameOver score={score} onRestart={startGame} />
-        )}
-      </CardContent>
-    </Card>
+    <div className="flex flex-col min-h-screen">
+      <Card className="w-full max-w-3xl mx-auto flex-grow">
+        <GameHeader 
+          timeLeft={timeLeft} 
+          score={score} 
+          streak={streak} 
+          title={GAME_TITLE}
+          onTitleClick={handleTitleClick}
+        />
+        <CardContent className="p-4">
+          {!isGameStarted ? (
+            <StartScreen onStart={startGame} gameTitle={GAME_TITLE} />
+          ) : !isGameOver ? (
+            <>
+              <div className="mb-5">
+                <h2 className="text-xl font-semibold mb-4">
+                  Current Word: 
+                  <span className="text-3xl ml-2 font-bold animate-color-cycle bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-md">{currentWord}</span>
+                </h2>
+                <SynonymInput onSubmit={handleSubmit} />
+              </div>
+              <SynonymList synonyms={synonyms} onSkip={skipWord} />
+            </>
+          ) : (
+            <GameOver score={score} onRestart={startGame} />
+          )}
+        </CardContent>
+      </Card>
+      <Footer />
+    </div>
   )
 }
