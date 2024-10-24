@@ -75,6 +75,7 @@
   }
 }
 
+
 @keyframes colorCycle {
   0%, 100% { color: hsl(var(--primary)); }
   33% { color: hsl(var(--secondary)); }

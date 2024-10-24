@@ -1,5 +1,5 @@
 const MW_API_BASE_URL = 'https://dictionaryapi.com/api/v3/references/thesaurus/json/';
-const MW_API_KEY = '2ba0d7ce-79d9-451c-9d16-c3a6ed72e387';
+const MW_API_KEY = process.env.NEXT_PUBLIC_MW_API_KEY;
 const RANDOM_WORD_API_URL = 'https://random-word-form.herokuapp.com/random/adjective';
 
 export async function fetchRandomWord(): Promise<string> {
