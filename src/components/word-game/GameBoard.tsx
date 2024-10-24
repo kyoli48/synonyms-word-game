@@ -124,6 +124,21 @@ export function GameBoard() {
     }
   }
 
+  const handleTitleClick = useCallback(() => {
+    if (isGameStarted) {
+      setIsGameStarted(false)
+      setIsGameOver(true)
+      setTimeLeft(INITIAL_TIME) // Reset the timer
+      setScore(0)
+      setStreak(0)
+      toast({
+        title: "Game Ended",
+        description: "You've returned to the start screen.",
+        duration: 3000,
+      })
+    }
+  }, [isGameStarted, toast])
+
   return (
     <Card className="w-full max-w-3xl mx-auto">
       <GameHeader 
@@ -131,6 +146,7 @@ export function GameBoard() {
         score={score} 
         streak={streak} 
         title={GAME_TITLE}
+        onTitleClick={handleTitleClick}
       />
       <CardContent className="p-4">
         {!isGameStarted ? (

@@ -29,7 +29,7 @@ export function SynonymInput({ onSubmit }: SynonymInputProps) {
         className="flex-grow"
         aria-label="Enter a synonym"
       />
-      <Button type="submit">Add</Button>
+      <Button className="bg-green-700 hover:bg-green-800" type="submit">Add</Button>
     </form>
   )
 }
