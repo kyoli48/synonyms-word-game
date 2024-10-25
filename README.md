@@ -44,7 +44,7 @@ Synonyms is a fast-paced, brain-teasing adjective association game built with Ne
 
 3. Create a `.env.local` file in the root directory and add your Merriam-Webster API key:
    ```
-   MW_API_KEY=your_api_key_here
+   NEXT_PUBLIC_MW_API_KEY=your_api_key_here
    ```
 
 4. Run the development server:
@@ -81,4 +81,4 @@ This project is licensed under the MIT License.
 ## Acknowledgments
 
 - Merriam-Webster for providing the Thesaurus API
-- dulldesk for providing the random word API (https://github.com/dulldesk/words-api)
+- dulldesk for providing the random word API (github.com/dulldesk/words-api)

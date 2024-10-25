@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/synonyms-game.git"
+    "url": "https://github.com/kyoli48/synonyms-word-game.git"
   },
   "scripts": {
     "dev": "next dev",
