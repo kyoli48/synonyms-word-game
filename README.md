@@ -6,7 +6,7 @@ Synonyms is a fast-paced, brain-teasing adjective association game built with Ne
 
 ## Features
 
-- Random word generation using an external API
+- Random adjective generation using Faker.js
 - Synonym validation using the Merriam-Webster Thesaurus API
 - Real-time scoring and streak tracking
 - Responsive design with Tailwind CSS
@@ -19,6 +19,7 @@ Synonyms is a fast-paced, brain-teasing adjective association game built with Ne
 - Tailwind CSS
 - Shadcn UI components
 - Merriam-Webster Thesaurus API
+- Faker.js
 
 ## Getting Started
 
@@ -81,4 +82,4 @@ This project is licensed under the MIT License.
 ## Acknowledgments
 
 - Merriam-Webster for providing the Thesaurus API
-- dulldesk for providing the random word API (github.com/dulldesk/words-api)
+
