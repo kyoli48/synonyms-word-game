@@ -1,17 +1,13 @@
+import { faker } from '@faker-js/faker';
+
 const MW_API_BASE_URL = 'https://dictionaryapi.com/api/v3/references/thesaurus/json/';
 const MW_API_KEY = process.env.NEXT_PUBLIC_MW_API_KEY;
-const RANDOM_WORD_API_URL = 'https://random-word-form.herokuapp.com/random/adjective';
 
 export async function fetchRandomWord(): Promise<string> {
   try {
-    const response = await fetch(RANDOM_WORD_API_URL);
-    if (!response.ok) {
-      throw new Error('Failed to fetch random word');
-    }
-    const data = await response.json();
-    return data[0]; // The API returns an array with a single word
+    return faker.word.adjective();
   } catch (error) {
-    console.error('Error fetching random word:', error);
+    console.error('Error generating random word:', error);
     throw error;
   }
 }
